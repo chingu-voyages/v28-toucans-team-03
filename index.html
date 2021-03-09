@@ -5,20 +5,97 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+        integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 
 <body>
-    <div id="vmap" style="width: 600px; height: 400px;"></div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Brand logo if needed-->
+        <a class="navbar-brand" href="#">COVID-19</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item px-5 mx-auto active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item px-5 mx-auto">
+                    <a class="nav-link" href="#">Staying Safe</a>
+                </li>
+                <li class="nav-item px-5 mx-auto">
+                    <a class="nav-link" href="#">Self-Care</a>
+                </li>
+                <li class="nav-item px-5 mx-auto">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-    <p class="body__elem"></p>
-    <p class="body__elem-2"></p>
 
+    <div class="container-main">
+        <!-- MAP -->
+        <div class="map flex-row" id="vmap" style="width: 600px; height: 400px;"></div>
+
+        <!-- DATA -->
+        <div class="data flex-column">
+            <!-- GLOBAL -->
+            <div class="global flex-row">
+                <div class="global__infected">
+                    <p class="global__infected__total"></p>
+                    <p class="global__infected__new"></p>
+                </div>
+                <div class="global__deaths">
+                    <p class="global__deaths__total"></p>
+                    <p class="global__deaths__new"></p>
+                </div>
+                <div class="global__recovered">
+                    <p class="global__recovered__total"></p>
+                    <p class="global__recovered__new"></p>
+                </div>
+                <p class="global__reported-date"></p>
+            </div>
+            <!-- COUNTRY -->
+            <div class="country flex-row">
+                <div class="country__infected">
+                    <p class="country__infected__total"></p>
+                    <p class="country__infected__new"></p>
+                </div>
+                <div class="country__deaths">
+                    <p class="country__deaths__total"></p>
+                    <p class="country__deaths__new"></p>
+                </div>
+                <div class="country__recovered">
+                    <p class="country__recovered__total"></p>
+                    <p class="country__recovered__new"></p>
+                </div>
+                <p class="country__reported-date"></p>
+            </div>
+        </div>
+
+        <!-- HOSPITALS/DOCTORS -->
+        <div class="hospitals">
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="container-footer">
+
+        </div>
+    </footer>
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

@@ -1,0 +1,17 @@
+/* Resets */
+* {
+	font-family: "Nanum Myeongjo", serif; /*CAN CHOOSE OTHER FONT FROM GOOGLE FONTS*/
+}
+
+.jqvmap-label {
+	position: absolute;
+	display: none;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background: #292929;
+	color: white;
+	font-family: sans-serif, Verdana;
+	padding: 3px;
+	pointer-events: none;
+}
