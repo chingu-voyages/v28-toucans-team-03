@@ -21,7 +21,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <!-- Brand logo if needed-->
-        <a class="navbar-brand" href="#">COVID-19</a>
+        <a class="navbar-brand" href="#"><i class="fas fa-viruses"></i> COVID-19</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -54,64 +54,80 @@
             <!-- DATA__World -->
             <h2 class="container__world">World</h2>
             <div class="row container__row">
-                <div class="col-sm-4">
-                <p class="container__title">Infections</p> 
+                <div class="col">
+                    <p class="container__title">&nbsp;</p>
+                    <div class="">
+                        <p class="container__world__label">Total</p>
+                        <p class="container__world__label">New</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <p class="container__title">Infections</p>
                     <div class="global__infected">
                         <p class="global__infected__total" id="global__infected__total"></p>
                         <p class="global__infected__new" id="global__infected__new"></p>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                <p class="container__title">Deaths</p> 
+                <div class="col">
+                    <p class="container__title">Deaths</p>
                     <div class="global__deaths">
                         <p class="global__deaths__total" id="global__deaths__total"></p>
                         <p class="global__deaths__new" id="global__deaths__new"></p>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                <p class="container__title">Recoveries</p> 
+                <div class="col">
+                    <p class="container__title">Recoveries</p>
                     <div class="global__recovered">
                         <p class="global__recovered__total" id="global__recovered__total"></p>
                         <p class="global__recovered__new" id="global__recovered__new"></p>
                     </div>
                 </div>
             </div>
-            <h2 class="container__country">Country</h2>
+            <h2 class="container__country">Country (Awaiting selection)</h2>
             <div class="row container__row">
-                <div class="col-sm-4">
-                    <p class="container__title">Infections</p> 
+                <div class="col">
+                    <p class="container__title">&nbsp;</p>
+                    <div class="">
+                        <p class="container__country__label">Total</p>
+                        <p class="container__country__label">New</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <p class="container__title">Infections</p>
                     <div class="country__infected">
                         <p class="country__infected__total" id="country__infected__total"></p>
                         <p class="country__infected__new" id="country__infected__new"></p>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <p class="container__title">Deaths</p> 
+                <div class="col">
+                    <p class="container__title">Deaths</p>
                     <div class="country__deaths">
                         <p class="country__deaths__total" id="country__deaths__total"></p>
                         <p class="country__deaths__new" id="country__deaths__new"></p>
                     </div>
                 </div>
-                <div class="col-sm-4">
-                    <p class="container__title">Recoveries</p> 
+                <div class="col">
+                    <p class="container__title">Recoveries</p>
                     <div class="country__recovered">
                         <p class="country__recovered__total" id="country__recovered__total"></p>
                         <p class="country__recovered__new" id="country__recovered__new"></p>
                     </div>
                 </div>
             </div>
+            <!-- Do we need to include reported date?-->
             <div class="row container__row">
+                <div class="col-sm-4"></div>
                 <div class="col-sm-4">
-                    <p class="container__title">Reported Date</p> 
-                    <p class="global__reported-date" id="global__reported-date"></p>
+                    <p class="container__title">Date and Time Obtained</p>
+                    <p class="date-time" id="date-time"></p>
                 </div>
             </div>
         </div>
     </div>
-        <!-- HOSPITALS/DOCTORS -->
-        <div class="hospitals">
+    <!-- HOSPITALS/DOCTORS -->
+    <div class="hospitals">
 
-        </div>
+    </div>
     </div>
     <footer>
         <div class="container-footer">
