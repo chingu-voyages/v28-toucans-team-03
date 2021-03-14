@@ -104,6 +104,7 @@ jQuery(document).ready(function () {
 					return response.json();
 				})
 				.then((data) => {
+					console.log(data);
 					data.Countries.forEach((item) => {
 						let country = region;
 						if (item.Country == country) {

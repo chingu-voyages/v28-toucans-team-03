@@ -15,35 +15,13 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+    <!-- Reuse the navbar in multiple pages -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Document</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <!-- Brand logo if needed-->
-        <a class="navbar-brand" href="#"><i class="fas fa-viruses"></i> COVID-19</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item px-5 mx-auto active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item px-5 mx-auto">
-                    <a class="nav-link" href="#">Staying Safe</a>
-                </li>
-                <li class="nav-item px-5 mx-auto">
-                    <a class="nav-link" href="#">Self-Care</a>
-                </li>
-                <li class="nav-item px-5 mx-auto">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
+    <div id="nav-plaveholder"></div>
 
     <div class="container-main">
         <!-- MAP -->
@@ -135,9 +113,10 @@
         </div>
     </footer>
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    <!-- jQuery Slim doesn't include (among other things) the Ajax functions such as .get().-->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script> -->
     <!-- Popper.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -154,4 +133,9 @@
     <script type="module" src="js/countUp.js"></script>
 </body>
 
+<script>
+    $.get("header.html", function(data){
+        $("#nav-plaveholder").replaceWith(data);
+    });
+</script> 
 </html>
