@@ -1,5 +1,4 @@
 {
-  "type": "module",
   "name": "v28-toucans-team-03",
   "version": "1.0.0",
   "description": "This is our Voyage project.",
@@ -23,6 +22,7 @@
     "countup": "^1.8.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
     "nodemon": "^2.0.7",
     "path": "^0.12.7",
     "url": "^0.11.0"
@@ -31,5 +31,6 @@
     "dotenv-webpack": "^7.0.1",
     "webpack": "^5.25.0",
     "webpack-cli": "^4.5.0"
-  }
+  },
+  "type": "module"
 }

@@ -1,105 +1,95 @@
-'use strict'
+"use strict";
 
-// import apiKey from '../../index'
-
-const articleContainer = document.querySelector('.main-container')
-const searchInput = document.getElementById('searchInput')
-const searchButton = document.getElementById('searchButton')
-const sortSelect = document.getElementById('sortSelect')
+const articleContainer = document.querySelector(".main-container");
+const searchInput = document.getElementById("searchInput");
+const searchButton = document.getElementById("searchButton");
+const sortSelect = document.getElementById("sortSelect");
 let selectedKeyword;
 
-const key = 'my_api_key' 
+// Default action
+document.addEventListener("DOMContentLoaded", () => {
+  getData();
+});
 
-// Still needs to work ٩( 'ω' )و
-// console.log(process.env.API_KEY);
-// console.log(import.meta.url);
+// User search by keyword
+searchButton.addEventListener("click", async () => {
+  selectedKeyword = searchInput.value;
+  const apiUrl = `news/${selectedKeyword}`;
+  const response = await fetch(apiUrl);
+  const data = await response.json();
 
-// Default 
-document.addEventListener('DOMContentLoaded', () => {
-    fetch(`https://newsapi.org/v2/everything?q=covid&apiKey=${key}`)
-    .then(res => res.json())
-    .then(data => {
-        renderArticles(data)
-    })
-})
+  renderArticles(data);
+});
 
-function renderArticles(data) {
-    if(articleContainer.firstChild) {
-        hideArticles()
-    }
-    for(let i = 0; i < data.articles.length; i++) {
-        // Container that wraps title, content and link
-        const article = document.createElement('div')
+// User choose from the selectbox
+sortSelect.onchange = async function () {
+  selectedKeyword = searchInput.value;
+  const selectedNumber = Number(sortSelect.value);
 
-        // Title parts
-        const title = document.createElement('h3')
-        title.textContent = data.articles[i].title
+  if (selectedNumber === 1) {
+    const apiUrl = `news/relevancy/${selectedKeyword}`;
+    const response = await fetch(apiUrl);
+    const data = await response.json();
 
-        // Content parts
-        const content = document.createElement('p')
-        content.textContent = data.articles[i].content
+    renderArticles(data);
+    return;
+  }
 
-        // Button to read full content
-        const link = document.createElement('a')
-        link.href = data.articles[i].url
-        link.textContent = 'Read all'
+  if (selectedNumber === 2) {
+    const apiUrl = `news/popularity/${selectedKeyword}`;
+    const response = await fetch(apiUrl);
+    const data = await response.json();
 
+    renderArticles(data);
+    return;
+  }
 
-        article.append(title, content, link)
-        articleContainer.append(article)
-    }
+  if (selectedNumber === 3) {
+    const apiUrl = `news/newest/${selectedKeyword}`;
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+
+    renderArticles(data);
+    return;
+  }
+};
+
+async function getData() {
+  const response = await fetch("/news");
+  const data = await response.json();
+
+  renderArticles(data);
 }
 
-// User customize
-searchButton.addEventListener('click', () => {
-    selectedKeyword = searchInput.value
-    fetch(`https://newsapi.org/v2/everything?q=${selectedKeyword}&apiKey=${key}`)
-    .then(res => res.json())
-    .then(data => {
-        hideArticles()
-        renderArticles(data);
-    })
-})
+function renderArticles(data) {
+  if (articleContainer.firstChild) {
+    hideArticles();
+  }
+  for (let i = 0; i < data.articles.length; i++) {
+    // Container that wraps title, content and link
+    const article = document.createElement("div");
+
+    // Title parts
+    const title = document.createElement("h3");
+    title.textContent = data.articles[i].title;
+
+    // Content parts
+    const content = document.createElement("p");
+    content.textContent = data.articles[i].content;
+
+    // Button to read full content
+    const link = document.createElement("a");
+    link.href = data.articles[i].url;
+    link.textContent = "Read all";
+
+    article.append(title, content, link);
+    articleContainer.append(article);
+  }
+}
 
 // Remove the articles if excists
 function hideArticles() {
-    while(articleContainer.firstChild){
-        articleContainer.removeChild(articleContainer.firstChild);
-    }
-}
-
-sortSelect.onchange = function() {
-    selectedKeyword = searchInput.value
-    console.log(selectedKeyword);
-    const selectedNumber = Number(sortSelect.value)
-
-    if(selectedNumber === 1) {
-        fetch(`https://newsapi.org/v2/everything?q=${selectedKeyword}&sortBy=relevancy&apiKey=${key}`)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            renderArticles(data)
-        })
-        return  
-    }
-
-    if(selectedNumber === 2) {
-        fetch(`https://newsapi.org/v2/everything?q=${selectedKeyword}&sortBy=popularity&apiKey=${key}`)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            renderArticles(data)
-        })
-        return 
-    }
-
-    if(selectedNumber === 3) {
-        fetch(`https://newsapi.org/v2/everything?q=${selectedKeyword}&sortBy=publishedAt&apiKey=${key}`)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            renderArticles(data)
-        })
-        return 
-    }
+  while (articleContainer.firstChild) {
+    articleContainer.removeChild(articleContainer.firstChild);
+  }
 }
