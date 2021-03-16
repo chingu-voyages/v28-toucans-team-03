@@ -25,18 +25,20 @@
 
     <div class="container-main">
         <!-- MAP -->
-        <div class="map flex-row" id="vmap"></div>
+        <section class="container-map">
+            <div class="map flex-row" id="vmap"></div>
+        </section>
 
         <!-- DATA -->
-        <div class="container container-data">
+        <section class="container container-data">
             <!-- DATA__World -->
             <h2 class="container__world">World</h2>
             <div class="row container__row">
                 <div class="col">
                     <p class="container__title">&nbsp;</p>
-                    <div class="">
-                        <p class="container__world__label">Total</p>
-                        <p class="container__world__label">New</p>
+                    <div class="container__labels">
+                        <p class="container__global__label">Total</p>
+                        <p class="container__global__label">New</p>
                     </div>
                 </div>
                 <div class="col">
@@ -92,24 +94,64 @@
                     </div>
                 </div>
             </div>
-            <!-- Do we need to include reported date?-->
-            <div class="row container__row">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-4">
-                    <p class="container__title">Date and Time Obtained</p>
-                    <p class="date-time" id="date-time"></p>
+        </section>
+    </div>
+    <!-- HOSPITALS/DOCTORS -->
+    <section class="container container-clinics-hospitals">
+        <h2 class="container__title">Nearby Clinics and Hospitals</h2>
+        <!-- CLINICS TAB -->
+        <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="pills-clinics-tab" data-toggle="pill" href="#pills-clinics" role="tab"
+                    aria-controls="pills-clinics" aria-selected="true">Clinics</a>
+            </li>
+            <!-- HOSPITALS TAB -->
+            <li class="nav-item">
+                <a class="nav-link" id="pills-hospitals-tab" data-toggle="pill" href="#pills-hospitals" role="tab"
+                    aria-controls="pills-hospitals" aria-selected="false">Hospitals</a>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-clinics" role="tabpanel"
+                aria-labelledby="pills-clinics-tab">
+                <!-- CLINICS CONTENT -->
+                <form id="form__clinics">
+                    <div class="form-group">
+                        <label for="city-name">Enter the city you would like to search nearby clinics for
+                            below:</label>
+                        <input type="text" class="form-control" value="" id="form__clinics__input"
+                            placeholder="City Name">
+                        <button type="submit" class="btn btn-primary mt-2">Search</button>
+                    </div>
+                </form>
+                <div>
+                    <iframe id="clinics" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyCXvXc3QXwja_tb3jkY0CB8EfF1vrEhX-0
+                &q=clinic" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-hospitals" role="tabpanel" aria-labelledby="pills-hospitals-tab">
+                <!-- HOSPITALS CONTENT -->
+                <form id="form__hospitals">
+                    <div class="form-group">
+                        <label for="city-name">Enter the city you would like to search nearby hospitals for
+                            below:</label>
+                        <input type="text" class="form-control" value="" id="form__hospitals__input"
+                            placeholder="City Name">
+                        <button type="submit" class="btn btn-primary mt-2">Search</button>
+                    </div>
+                    <!-- NEARBY HOSPITALS SEARCH -->
+                </form>
+                <div>
+                    <iframe id="hospitals" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyCXvXc3QXwja_tb3jkY0CB8EfF1vrEhX-0
+            &q=hospital" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- HOSPITALS/DOCTORS -->
-    <div class="hospitals">
 
-    </div>
-    </div>
+    </section>
     <footer>
         <div class="container-footer">
-
         </div>
     </footer>
     <!-- jQuery -->
@@ -129,8 +171,10 @@
     <script src="js/jquery.vmap.js"></script>
     <script src="js/jquery.vmap.world.js"></script>
     <script src="js/jquery.vmap.sampledata.js"></script>
+    <!-- -->
     <script type="module" src="js/map.js"></script>
     <script type="module" src="js/countUp.js"></script>
+    <script type="module" src="js/clinicsHospitals.js"></script>
 </body>
 
 <script>

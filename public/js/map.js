@@ -17,14 +17,7 @@ fetch("https://api.covid19api.com/summary", {
 			NewDeaths,
 			TotalRecovered,
 			NewRecovered,
-			Date,
 		} = data.Global;
-
-		let dateTime = document.getElementById("date-time");
-		let Day = Date.slice(0, 10);
-		let Time = Date.slice(11);
-		Date = `${Day} ${Time}`;
-		dateTime.textContent = Date;
 
 		// Countup function using Countup.js library
 		function countAnimationGlobal() {
