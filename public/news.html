@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/news.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+        integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+    <!-- Reuse the navbar in multiple pages -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>News</title>
+</head>
+<body>
+    <div id="nav-plaveholder"></div>
+
+    <div class="container header-container">
+        <div class="select-placeholder">
+            <input type="text" id="searchInput" class="search-input"placeholder="Search">
+            <button type="submit" id="searchButton" class="search-button">Search</button>
+        
+            <select class="form-select" aria-label="Default select example" id="sortSelect">
+                <option selected>Open this select menu</option>
+                <option value="1">Relevancy</option>
+                <option value="2">popularity</option>
+                <option value="3">Newest</option>
+            </select>
+
+        </div>
+    </div>
+
+
+    <div class="container main-container">
+    <!-- <div id="article"> -->
+        <!-- <h2>title</h2> -->
+        <!-- <p>description</p> -->
+    <!-- </div> -->
+    </div>
+
+    <script type="module" src="js/news.js"></script>
+    <script>
+        $.get("header.html", function(data){
+            $("#nav-plaveholder").replaceWith(data);
+        });
+    </script> 
+</body>
+</html>
+
+
