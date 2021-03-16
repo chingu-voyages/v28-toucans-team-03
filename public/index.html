@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+        integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Brand logo if needed-->
+        <a class="navbar-brand" href="#"><i class="fas fa-viruses"></i> COVID-19</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item px-5 mx-auto active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item px-5 mx-auto">
+                    <a class="nav-link" href="#">Staying Safe</a>
+                </li>
+                <li class="nav-item px-5 mx-auto">
+                    <a class="nav-link" href="#">Self-Care</a>
+                </li>
+                <li class="nav-item px-5 mx-auto">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container-main">
+        <!-- MAP -->
+        <section class="container-map">
+            <div class="map flex-row" id="vmap"></div>
+        </section>
+
+        <!-- DATA -->
+        <section class="container container-data">
+            <!-- DATA__World -->
+            <h2 class="container__world">World</h2>
+            <div class="row container__row">
+                <div class="col">
+                    <p class="container__title">&nbsp;</p>
+                    <div class="container__labels">
+                        <p class="container__global__label">Total</p>
+                        <p class="container__global__label">New</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <p class="container__title">Infections</p>
+                    <div class="global__infected">
+                        <p class="global__infected__total" id="global__infected__total"></p>
+                        <p class="global__infected__new" id="global__infected__new"></p>
+                    </div>
+                </div>
+                <div class="col">
+                    <p class="container__title">Deaths</p>
+                    <div class="global__deaths">
+                        <p class="global__deaths__total" id="global__deaths__total"></p>
+                        <p class="global__deaths__new" id="global__deaths__new"></p>
+                    </div>
+                </div>
+                <div class="col">
+                    <p class="container__title">Recoveries</p>
+                    <div class="global__recovered">
+                        <p class="global__recovered__total" id="global__recovered__total"></p>
+                        <p class="global__recovered__new" id="global__recovered__new"></p>
+                    </div>
+                </div>
+            </div>
+            <h2 class="container__country">Country (Awaiting selection)</h2>
+            <div class="row container__row">
+                <div class="col">
+                    <p class="container__title">&nbsp;</p>
+                    <div class="">
+                        <p class="container__country__label">Total</p>
+                        <p class="container__country__label">New</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <p class="container__title">Infections</p>
+                    <div class="country__infected">
+                        <p class="country__infected__total" id="country__infected__total"></p>
+                        <p class="country__infected__new" id="country__infected__new"></p>
+                    </div>
+                </div>
+                <div class="col">
+                    <p class="container__title">Deaths</p>
+                    <div class="country__deaths">
+                        <p class="country__deaths__total" id="country__deaths__total"></p>
+                        <p class="country__deaths__new" id="country__deaths__new"></p>
+                    </div>
+                </div>
+                <div class="col">
+                    <p class="container__title">Recoveries</p>
+                    <div class="country__recovered">
+                        <p class="country__recovered__total" id="country__recovered__total"></p>
+                        <p class="country__recovered__new" id="country__recovered__new"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- HOSPITALS/DOCTORS -->
+    <section class="container container-clinics-hospitals">
+        <h2 class="container__title">Nearby Clinics and Hospitals</h2>
+        <!-- CLINICS TAB -->
+        <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="pills-clinics-tab" data-toggle="pill" href="#pills-clinics" role="tab"
+                    aria-controls="pills-clinics" aria-selected="true">Clinics</a>
+            </li>
+            <!-- HOSPITALS TAB -->
+            <li class="nav-item">
+                <a class="nav-link" id="pills-hospitals-tab" data-toggle="pill" href="#pills-hospitals" role="tab"
+                    aria-controls="pills-hospitals" aria-selected="false">Hospitals</a>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-clinics" role="tabpanel"
+                aria-labelledby="pills-clinics-tab">
+                <!-- CLINICS CONTENT -->
+                <form id="form__clinics">
+                    <div class="form-group">
+                        <label for="city-name">Enter the city you would like to search nearby clinics for
+                            below:</label>
+                        <input type="text" class="form-control" value="" id="form__clinics__input"
+                            placeholder="City Name">
+                        <button type="submit" class="btn btn-primary mt-2">Search</button>
+                    </div>
+                </form>
+                <div>
+                    <iframe id="clinics" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyCXvXc3QXwja_tb3jkY0CB8EfF1vrEhX-0
+                &q=clinic" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="pills-hospitals" role="tabpanel" aria-labelledby="pills-hospitals-tab">
+                <!-- HOSPITALS CONTENT -->
+                <form id="form__hospitals">
+                    <div class="form-group">
+                        <label for="city-name">Enter the city you would like to search nearby hospitals for
+                            below:</label>
+                        <input type="text" class="form-control" value="" id="form__hospitals__input"
+                            placeholder="City Name">
+                        <button type="submit" class="btn btn-primary mt-2">Search</button>
+                    </div>
+                    <!-- NEARBY HOSPITALS SEARCH -->
+                </form>
+                <div>
+                    <iframe id="hospitals" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyCXvXc3QXwja_tb3jkY0CB8EfF1vrEhX-0
+            &q=hospital" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <footer>
+        <div class="container-footer">
+        </div>
+    </footer>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <!-- Popper.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <!-- Map Plugins -->
+    <script src="js/jquery.vmap.js"></script>
+    <script src="js/jquery.vmap.world.js"></script>
+    <script src="js/jquery.vmap.sampledata.js"></script>
+    <!-- -->
+    <script type="module" src="js/map.js"></script>
+    <script type="module" src="js/countUp.js"></script>
+    <script type="module" src="js/clinicsHospitals.js"></script>
+</body>
+
+</html>
