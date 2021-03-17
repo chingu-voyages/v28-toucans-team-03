@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Brand logo if needed-->
+    <a class="navbar-brand" href="#"><i class="fas fa-viruses nav-red-color"></i> COVID-19</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item px-5 mx-auto">
+                <a <% if (page_name==='home' ) { %>class="nav-link active nav-red-color" <% } %> class="nav-link"
+                        href="/">Home</a>
+            </li>
+            <li class="nav-item px-5 mx-auto">
+                <a <% if (page_name==='staying-safe' ) { %>class=" nav-link active nav-red-color" <% } %>
+                        class="nav-link"
+                        href="/staying-safe">Staying Safe</a>
+            </li>
+            <li class="nav-item px-5 mx-auto">
+                <a <% if (page_name==='self-care' ) { %>class="nav-link active nav-red-color" <% } %> class="nav-link"
+                        href="/self-care">Self-Care</a>
+            </li>
+            <li class="nav-item px-5 mx-auto">
+                <a <% if (page_name==='news' ) { %>class="nav-link active nav-red-color" <% } %> class="nav-link"
+                        href="/news">News</a>
+            </li>
+        </ul>
+    </div>
+</nav>
