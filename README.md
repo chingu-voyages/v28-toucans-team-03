@@ -1,22 +1,26 @@
 # v28-toucans-team-03
 
-This is our Voyage project.
+## Overview
 
-We are start building our team for Sprint #1 to set up all necessary to make our project up and running.
+This --name of project-- was created by Toucans Team 3 for Chingu Voyage 28.
 
-We plan to make a COVID-19 focused app with various features.
+#### LIVE LINK : URL
 
-<Kresna edited>
-I made pull/and push excercise to this file.
+## Features
 
-<Yui edited>
-This app has the following features.
-- It shows number of people infected/who have died/ due to COVID and also recovered per day/week/month
-- It shows nearby hospitals/doctors based on where you are
-- It provides the users some information about vaccine
-- It gives the users some symptoms of Covid19 
-- It provides the users self-care (ex. exercises, foods)
-- When the country is under lockdown/ emergency, it is shown in color
-- It shows country comparisons for COVID-19
+- Shows the total and new number of people infected/who have died/ who have recovered due to COVID
+- Shows nearby hospitals/doctors based on where you are
+- Provides the users some information about vaccines
+- Gives the users some symptoms of Covid19
+- Provides users with self-care tips (ex. exercises, foods)
 
+## Tech Used / Dependencies
 
+- HTML, CSS, Bootstrap, Javascript, jQuery and Font Awesome were used to make this --name of project--.
+
+- Fonts from Google Fonts (https://fonts.google.com/)
+
+- Various links are included to various resources (list urls here)
+
+- Dependencies (https://medium.com/chingu/keys-to-a-well-written-readme-55c53d34fe6d)
+  run npm install ....

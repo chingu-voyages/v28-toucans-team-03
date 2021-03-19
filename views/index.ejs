@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs') %>
+        <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <%- include('./partials/navbar.ejs') %>
+        <div class="container-main">
+            <!-- MAP -->
+            <section class="container-map">
+                <div class="map flex-row" id="vmap"></div>
+            </section>
+
+            <!-- DATA -->
+            <section class="container container-data">
+                <!-- DATA__World -->
+                <h2 class="container__world">World</h2>
+                <div class="row container__row">
+                    <div class="col">
+                        <p class="container__title">&nbsp;</p>
+                        <div class="container__labels">
+                            <p class="container__global__label">Total</p>
+                            <p class="container__global__label">New</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <p class="container__title">Infections</p>
+                        <div class="global__infected">
+                            <p class="global__infected__total" id="global__infected__total"></p>
+                            <p class="global__infected__new" id="global__infected__new"></p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <p class="container__title">Deaths</p>
+                        <div class="global__deaths">
+                            <p class="global__deaths__total" id="global__deaths__total"></p>
+                            <p class="global__deaths__new" id="global__deaths__new"></p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <p class="container__title">Recoveries</p>
+                        <div class="global__recovered">
+                            <p class="global__recovered__total" id="global__recovered__total"></p>
+                            <p class="global__recovered__new" id="global__recovered__new"></p>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="container__country">Country (Awaiting selection)</h2>
+                <div class="row container__row">
+                    <div class="col">
+                        <p class="container__title">&nbsp;</p>
+                        <div class="">
+                            <p class="container__country__label">Total</p>
+                            <p class="container__country__label">New</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <p class="container__title">Infections</p>
+                        <div class="country__infected">
+                            <p class="country__infected__total" id="country__infected__total"></p>
+                            <p class="country__infected__new" id="country__infected__new"></p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <p class="container__title">Deaths</p>
+                        <div class="country__deaths">
+                            <p class="country__deaths__total" id="country__deaths__total"></p>
+                            <p class="country__deaths__new" id="country__deaths__new"></p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <p class="container__title">Recoveries</p>
+                        <div class="country__recovered">
+                            <p class="country__recovered__total" id="country__recovered__total"></p>
+                            <p class="country__recovered__new" id="country__recovered__new"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- HOSPITALS/DOCTORS -->
+        <section class="container container-clinics-hospitals">
+            <h2 class="container__title">Nearby Clinics and Hospitals</h2>
+            <!-- CLINICS TAB -->
+            <ul class="nav nav-tabs mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="pills-clinics-tab" data-toggle="pill" href="#pills-clinics"
+                        role="tab" aria-controls="pills-clinics" aria-selected="true">Clinics</a>
+                </li>
+                <!-- HOSPITALS TAB -->
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-hospitals-tab" data-toggle="pill" href="#pills-hospitals" role="tab"
+                        aria-controls="pills-hospitals" aria-selected="false">Hospitals</a>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-clinics" role="tabpanel"
+                    aria-labelledby="pills-clinics-tab">
+                    <!-- CLINICS CONTENT -->
+                    <form id="form__clinics">
+                        <div class="form-group">
+                            <label for="city-name">Enter the city you would like to search nearby clinics for
+                                below:</label>
+                            <input type="text" autocomplete="off" class="form-control" value=""
+                                id="form__clinics__input" placeholder="City Name">
+                            <button type="submit" class="btn btn-primary mt-2">Search</button>
+                        </div>
+                    </form>
+                    <div>
+                        <iframe id="clinics" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyCXvXc3QXwja_tb3jkY0CB8EfF1vrEhX-0
+                &q=clinic" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-hospitals" role="tabpanel" aria-labelledby="pills-hospitals-tab">
+                    <!-- HOSPITALS CONTENT -->
+                    <form id="form__hospitals">
+                        <div class="form-group">
+                            <label for="city-name">Enter the city you would like to search nearby hospitals for
+                                below:</label>
+                            <input type="text" autocomplete="off" class="form-control" value=""
+                                id="form__hospitals__input" placeholder="City Name">
+                            <button type="submit" class="btn btn-primary mt-2">Search</button>
+                        </div>
+                        <!-- NEARBY HOSPITALS SEARCH -->
+                    </form>
+                    <div>
+                        <iframe id="hospitals" src="https://www.google.com/maps/embed/v1/search?key=AIzaSyCXvXc3QXwja_tb3jkY0CB8EfF1vrEhX-0
+            &q=hospital" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- FOOTER-->
+        <%- include('./partials/footer.ejs') %>
+            <!-- Map Plugins -->
+            <script src="js/jquery.vmap.js"></script>
+            <script src="js/jquery.vmap.world.js"></script>
+            <script src="js/jquery.vmap.sampledata.js"></script>
+            <!-- Js Files -->
+            <script type="module" src="js/map.js"></script>
+            <script type="module" src="js/countUp.js"></script>
+            <script type="module" src="js/clinicsHospitals.js"></script>
+</body>
+
+</html>
