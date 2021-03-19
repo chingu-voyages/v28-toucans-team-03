@@ -1,0 +1,41 @@
+h2,
+h3 {
+  text-align: center;
+  font-weight: bold;
+}
+
+header {
+  margin: 1.2rem;
+}
+
+main {
+  margin: 2rem;
+  padding: 2rem;
+}
+
+ul {
+  padding: 0 40px;
+}
+
+aside {
+  width: 400px;
+  background-color: lightgray;
+  display: inline-flex;
+  justify-content: center;
+}
+
+/* aside.list-1 {
+    flex-grow: 1;
+}
+
+aside.list-2 {
+    flex-grow: 1;
+}
+
+aside.list-3 {
+    flex-grow: 1;
+} */
+
+.steps img {
+  height: 100px;
+}
