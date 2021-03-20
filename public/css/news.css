@@ -18,3 +18,18 @@
     margin-right: 14px;
 }
 
+.col {
+    max-width: 280px;
+    min-width: 280px;
+    margin-top: 30px;
+    padding-bottom: 20px;
+    border-bottom: solid 1px #d5d0cd
+};
+
+.row {
+    margin-bottom: 20px;
+    max-height: 200px
+};
+
+
+
