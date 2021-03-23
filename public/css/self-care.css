@@ -3,9 +3,19 @@ h2, h3 {
     font-weight: bold;
 }
 
+section {
+    margin: 0 60px;
+}
+
 h6 {
     font-size: 20px;
     font-weight: bold;
+}
+
+h5 {
+    padding-top: 20px;
+    line-height: 20px;
+    text-align: center;
 }
 
 header {
