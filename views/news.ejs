@@ -4,30 +4,25 @@
 <head>
     <%- include('./partials/head.ejs') %>
         <link rel="stylesheet" href="css/news.css">
+        <link rel="stylesheet" type="text/css" href="css/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="css/slick/slick-theme.css"/>
 </head>
 
 <body>
     <!-- NAVBAR -->
     <%- include('./partials/navbar.ejs') %>
 
-        <div class="container header-container">
-            <div class="select-placeholder">
-                <input type="text" id="searchInput" class="search-input" placeholder="Search">
-                <button type="submit" id="searchButton" class="search-button">Search</button>
-
-                <select class="form-select" aria-label="Default select example" id="sortSelect">
-                    <option selected>Open this select menu</option>
-                    <option value="1">Relevancy</option>
-                    <option value="2">Popularity</option>
-                    <option value="3">Newest</option>
-                </select>
-
-            </div>
+    <div class="container header-container">
+        <div class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+            <button class="btn btn-outline-success" id="searchButton" type="submit">Search</button>
         </div>
-        <div class="container main-container">
-        </div>
-        <%- include('./partials/footer.ejs') %>
-            <script type="module" src="js/news.js"></script>
+    </div>
+    <div class="container main-container"></div>
+
+    <%- include('./partials/footer.ejs') %>
+    <script type="text/javascript" src="js/slick.min.js"></script>
+    <script type="module" src="js/news.js"></script>
 </body>
 
 </html>
