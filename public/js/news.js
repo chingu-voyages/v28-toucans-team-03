@@ -4,6 +4,8 @@ const articleContainer = document.querySelector(".main-container");
 const searchInput = document.getElementById("searchInput");
 const searchButton = document.getElementById("searchButton");
 let selectedKeyword;
+let rows = []
+let articles = []
 
 // Default action
 document.addEventListener("DOMContentLoaded", async () => {
