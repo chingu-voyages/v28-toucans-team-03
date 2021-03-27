@@ -3,93 +3,93 @@
 const articleContainer = document.querySelector(".main-container");
 const searchInput = document.getElementById("searchInput");
 const searchButton = document.getElementById("searchButton");
-const sortSelect = document.getElementById("sortSelect");
 let selectedKeyword;
+let rows = []
+let articles = []
 
 // Default action
-document.addEventListener("DOMContentLoaded", () => {
-	getData();
+document.addEventListener("DOMContentLoaded", async () => {
+  getData();
 });
 
 // User search by keyword
 searchButton.addEventListener("click", async () => {
-	selectedKeyword = searchInput.value;
-	const apiUrl = `news.json/${selectedKeyword}`;
-	const response = await fetch(apiUrl);
-	const data = await response.json();
+  selectedKeyword = searchInput.value;
+  const apiUrl = `news.json/${selectedKeyword}`;
+  const response = await fetch(apiUrl);
+  const body = await response.json();
+  const data = body.response.docs;
 
-	renderArticles(data);
+  // Unitialize slick
+  if (articleContainer.classList.contains("slick-initialized")) {
+    articleContainer.classList.remove("slick-initialized");
+  }
+
+  renderArticles(data);
+
+  // Slick.js
+  await $(".main-container").slick({
+    dots: true,
+    speed: 1000,
+  });
 });
 
-// User choose from the selectbox
-sortSelect.onchange = async function () {
-	selectedKeyword = searchInput.value;
-	const selectedNumber = Number(sortSelect.value);
-
-	if (selectedNumber === 1) {
-		const apiUrl = `news.json/relevancy/${selectedKeyword}`;
-		const response = await fetch(apiUrl);
-		const data = await response.json();
-
-		renderArticles(data);
-		return;
-	}
-
-	if (selectedNumber === 2) {
-		const apiUrl = `news.json/popularity/${selectedKeyword}`;
-		const response = await fetch(apiUrl);
-		const data = await response.json();
-
-		renderArticles(data);
-		return;
-	}
-
-	if (selectedNumber === 3) {
-		const apiUrl = `news.json/newest/${selectedKeyword}`;
-		const response = await fetch(apiUrl);
-		const data = await response.json();
-
-		renderArticles(data);
-		return;
-	}
-};
-
+// Functions
 async function getData() {
-	const response = await fetch("/news.json");
-	const data = await response.json();
+  const response = await fetch("/news.json");
+  const body = await response.json();
+  const data = body.response.docs;
 
-	renderArticles(data);
+  renderArticles(data);
+
+  await $(".main-container").slick({
+    dots: true,
+    speed: 1000,
+  });
 }
 
 function renderArticles(data) {
-	if (articleContainer.firstChild) {
-		hideArticles();
-	}
-	for (let i = 0; i < data.articles.length; i++) {
-		// Container that wraps title, content and link
-		const article = document.createElement("div");
+  if (articleContainer.firstChild) {
+    hideArticles();
+  }
+  for (let i = 0; i < data.length; i++) {
+    // Container that wraps title, content and link
+    const article = document.createElement("div");
+    article.setAttribute("class", "article");
 
-		// Title parts
-		const title = document.createElement("h3");
-		title.textContent = data.articles[i].title;
+    // Image parts
+    const image = document.createElement("img");
+    image.setAttribute("class", "news_image");
+    if (data[i].multimedia[0]) {
+      image.src = `http://static01.nyt.com/${data[i].multimedia[0].url}`;
+    } else {
+      image.src = "css/slick/images/markus-spiske-qRaEf5jnYyc-unsplash.jpg";
+    }
 
-		// Content parts
-		const content = document.createElement("p");
-		content.textContent = data.articles[i].content;
+    // Title parts
+    const title = document.createElement("h4");
+    title.setAttribute("class", "news_title");
+    title.textContent = data[i].headline.main;
 
-		// Button to read full content
-		const link = document.createElement("a");
-		link.href = data.articles[i].url;
-		link.textContent = "Read all";
+    // Content parts
+    const content = document.createElement("p");
+    content.setAttribute("class", "news_content");
+    content.textContent = data[i].lead_paragraph;
 
-		article.append(title, content, link);
-		articleContainer.append(article);
-	}
+    // Button to read full content
+    const link = document.createElement("a");
+    link.setAttribute("class", "news_link");
+    link.href = data[i].web_url;
+    link.textContent = "Read all";
+
+    article.append(image, title, content, link);
+    articleContainer.append(article);
+  }
 }
 
-// Remove the articles if excists
+// Remove the articles if exists
 function hideArticles() {
-	while (articleContainer.firstChild) {
-		articleContainer.removeChild(articleContainer.firstChild);
-	}
+  while (articleContainer.firstChild) {
+    articleContainer.removeChild(articleContainer.firstChild);
+  }
 }

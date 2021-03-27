@@ -29,76 +29,47 @@ app.set("view engine", "ejs");
 
 //ROUTES//
 app.get("/", (req, res) => {
-	res.render("index", { title: "Home Page", page_name: "home" });
+  res.render("index", { title: "Home Page", page_name: "home" });
 });
 
 app.get("/staying-safe", (req, res) => {
-	res.render("staying-safe", {
-		title: "Staying Safe",
-		page_name: "staying-safe",
-	});
+  res.render("staying-safe", {
+    title: "Staying Safe",
+    page_name: "staying-safe",
+  });
 });
 
 app.get("/self-care", (req, res) => {
-	res.render("self-care", { title: "Self-Care", page_name: "self-care" });
+  res.render("self-care", { title: "Self-Care", page_name: "self-care" });
 });
 
 app.get("/news", (req, res) => {
-	res.render("news", { title: "News", page_name: "news" });
+  res.render("news", { title: "News", page_name: "news" });
 });
 
 //NEWS.JSON ROUTES//
 // Default
 
 app.get("/news.json", async (req, res) => {
-	const covidUrl = `https://newsapi.org/v2/everything?q=covid&apiKey=${apiKey}`;
-	const covidResponse = await fetch(covidUrl);
-	const covidData = await covidResponse.json();
+  const covidUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=covid&api-key=${apiKey}`;
+  const covidResponse = await fetch(covidUrl);
+  const covidData = await covidResponse.json();
 
-	res.json(covidData);
+  res.json(covidData);
 });
 
 // Search by specific keyword
 app.get("/news.json/:keyword", async (req, res) => {
-	const data = req.params;
-	const searchUrl = `https://newsapi.org/v2/everything?q=${data.keyword}&apiKey=${apiKey}`;
-	const searchResponse = await fetch(searchUrl);
-	const searchData = await searchResponse.json();
+  const data = req.params;
 
-	res.json(searchData);
-});
+  const searchUrl = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${data.keyword}&fq=Health&api-key=${apiKey}`;
+  const searchResponse = await fetch(searchUrl);
+  const searchData = await searchResponse.json();
 
-// Search by relevancy
-app.get("/news.json/relevancy/:keyword", async (req, res) => {
-	const data = req.params;
-	const relevancyUrl = `https://newsapi.org/v2/everything?q=${data.keyword}&sortBy=relevancy&apiKey=${apiKey}`;
-	const relevancyResponse = await fetch(relevancyUrl);
-	const relevancyData = await relevancyResponse.json();
-
-	res.json(relevancyData);
-});
-
-// Search by popularity
-app.get("/news.json/popularity/:keyword", async (req, res) => {
-	const data = req.params;
-	const popularityUrl = `https://newsapi.org/v2/everything?q=${data.keyword}&sortBy=popularity&apiKey=${apiKey}`;
-	const popularityResponse = await fetch(popularityUrl);
-	const popularityData = await popularityResponse.json();
-
-	res.json(popularityData);
-});
-
-// Search by newest
-app.get("/news.json/newest/:keyword", async (req, res) => {
-	const data = req.params;
-	const newestUrl = `https://newsapi.org/v2/everything?q=${data.keyword}&sortBy=publishedAt&apiKey=${apiKey}`;
-	const newestResponse = await fetch(newestUrl);
-	const newestData = await newestResponse.json();
-
-	res.json(newestData);
+  res.json(searchData);
 });
 
 //Listen on port located in .env
 app.listen(process.env.PORT, () =>
-	console.log(`App listening on port http://localhost:${process.env.PORT}/`)
+  console.log(`App listening on port http://localhost:${process.env.PORT}/`)
 );
