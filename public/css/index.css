@@ -25,3 +25,10 @@
 .title {
 	font-size: 20px;
 }
+
+
+@media screen and (max-width: 480px) {
+	.col_1 {
+		width: 50px;
+	}
+}
