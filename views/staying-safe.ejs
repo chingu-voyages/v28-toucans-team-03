@@ -4,6 +4,7 @@
 <head>
     <%- include('./partials/head.ejs') %>
         <link rel="stylesheet" href="css/staying-safe.css">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 
 <body>
@@ -11,7 +12,7 @@
     <%- include('./partials/navbar.ejs') %>
 
         <main class="container">
-            <section>
+            <section data-aos="zoom-out">
                 <!-- Main -->
                 <h2>Coronavirus Safety Tips for Everyone</h2>
                 <h5>
@@ -24,7 +25,7 @@
             </section>
 
             <!-- Box -->
-            <section class="d-flex justify-content-center">
+            <section class="d-flex justify-content-center" data-aos="flip-left">
                 <aside>
                     <article class="article box container">
                         <h4>How Does COVID-19 Spread?</h4>
@@ -53,7 +54,7 @@
                 </aside>
             </section>
             <!-- Practice -->
-            <section class="article practice">
+            <section class="article practice" data-aos="fade-right">
                 <h6>Use Healthy Practice to Protect Yourself</h6>
                 <h5>
                     The best way to stay healthy is to follow these steps from the CDC:
@@ -95,7 +96,7 @@
             </section>
 
             <!-- Steps -->
-            <section>
+            <section data-aos="fade-left">
                 <h6>
                     Follow these five easy steps to help prevent the spread of COVID-19
                 </h6>
@@ -161,6 +162,13 @@
         </main>
 
         <%- include('./partials/footer.ejs') %>
+            <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+            <script>
+                AOS.init({
+                    easing: "ease",
+                    duration: 1800,
+                });
+            </script>
 </body>
 
 </html>

@@ -4,6 +4,7 @@
 <head>
     <%- include('./partials/head.ejs') %>
         <link rel="stylesheet" href="css/self-care.css">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 
 <body>
@@ -11,7 +12,7 @@
     <%- include('./partials/navbar.ejs') %>
 
         <main class="container">
-            <section>
+            <section data-aos="zoom-out">
                 <h2>Treating COVID-19 at home: Care tips for you and others</h2>
                 <h5>
                     Providing care at home for a person sick with COVID-19? Or caring for
@@ -29,7 +30,7 @@
                     and manage your stress? Here's what you need to know.
                 </p>
             </section>
-            <section>
+            <section data-aos="fade-right">
                 <h6>At-home treatment</h6>
                 <p>
                     Most people who become sick with COVID-19 will only experience mild
@@ -59,7 +60,7 @@
                     person to provide care.
                 </p>
             </section>
-            <section>
+            <section data-aos="fade-left">
                 <h6>Emergency warning signs</h6>
                 <p>
                     Carefully monitor yourself or your loved one for worsening symptoms.
@@ -90,7 +91,7 @@
                     <li>Inability to stay awake</li>
                 </ul>
             </section>
-            <section>
+            <section data-aos="fade-right">
                 <h6>Protecting others if you're ill</h6>
                 <p>
                     If you're ill with COVID-19, you can help prevent the spread of
@@ -140,7 +141,7 @@
                     </li>
                 </ul>
             </section>
-            <section>
+            <section data-aos="fade-left">
                 <h6>Protecting yourself while caring for someone with COVID-19</h6>
                 <p>
                     To protect yourself while caring for someone with COVID-19, the U.S.
@@ -202,7 +203,7 @@
                     </li>
                 </ul>
             </section>
-            <section>
+            <section data-aos="fade-right">
                 <h6>Ending isolation or quarantine</h6>
                 <p>
                     Talk to the doctor about when to end home isolation, especially if
@@ -251,7 +252,7 @@
                     </li>
                 </ul>
             </section>
-            <section>
+            <section data-aos="fade-up">
                 <h6>Coping with caregiving stress</h6>
                 <p>
                     As you or your loved one recover, seek emotional support. Stay
@@ -310,6 +311,13 @@
         </main>
 
         <%- include('./partials/footer.ejs') %>
+            <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+            <script>
+                AOS.init({
+                    easing: "ease",
+                    duration: 1800,
+                });
+            </script>
 </body>
 
 </html>

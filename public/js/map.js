@@ -9,7 +9,6 @@ fetch("https://api.covid19api.com/summary", {
 		return response.json();
 	})
 	.then((data) => {
-		console.log(data);
 		let {
 			TotalConfirmed,
 			NewConfirmed,
@@ -97,7 +96,6 @@ jQuery(document).ready(function () {
 					return response.json();
 				})
 				.then((data) => {
-					console.log(data);
 					data.Countries.forEach((item) => {
 						let country = region;
 						if (item.Country == country) {
