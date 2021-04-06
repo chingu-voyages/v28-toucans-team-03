@@ -29,7 +29,6 @@ searchButton.addEventListener("click", async () => {
 
   // Slick.js
   await $(".main-container").slick({
-    dots: true,
     speed: 1000,
   });
 });
