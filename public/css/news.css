@@ -82,7 +82,8 @@
 
 @media screen and (max-width: 480px) {
 	.main-container {
-		width: 250px;
+    /* width: 250px; */
+		width: 300px;
 		height: 300px;
 	}
 
@@ -102,7 +103,7 @@
 	}
 
 	.slick-dots {
-		width: 220px !important;
+		width: 270px !important;
 		position: relative;
 		top: 600px;
 	}
@@ -113,7 +114,9 @@
 }
 
 /* Mobile */
-@media only screen and (max-width: 767px) {
+/* (Yui's comment) */
+/* The content overflows when the width of a device is less than 480px */
+/* @media only screen and (max-width: 767px) {
 	.main-container {
 		width: 400px;
 	}
@@ -121,7 +124,7 @@
 		position: relative;
 		top: 700px;
 	}
-}
+} */
 
 /* Tablets */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
@@ -130,7 +133,7 @@
 	}
 	.slick-dots {
 		position: relative;
-		top: 600px;
+		top: 700px;
 	}
 }
 
