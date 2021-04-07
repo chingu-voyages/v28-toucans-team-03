@@ -25,6 +25,31 @@ aside {
 	padding: 1.5em;
 }
 
-.steps img {
-	height: 100px;
+img {
+	padding-right: 2em !important;
+}
+
+/* Mobile */
+@media only screen and (max-width: 767px) {
+	.steps img {
+		height: 60px;
+	}
+
+	.steps {
+		font-size: 0.8em;
+	}
+}
+
+/* Tablets */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+	.steps img {
+		height: 80px;
+	}
+}
+
+/* Desktop and Laptop screens */
+@media only screen and (min-width: 1025px) {
+	.steps img {
+		height: 100px;
+	}
 }
