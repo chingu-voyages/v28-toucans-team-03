@@ -25,6 +25,10 @@ aside {
 	padding: 1.5em;
 }
 
+img {
+	padding-right: 2em !important;
+}
+
 /* Mobile */
 @media only screen and (max-width: 767px) {
 	.steps img {
