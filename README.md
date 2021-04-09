@@ -1,8 +1,8 @@
-# v28-toucans-team-03
+# The COVID-19 App
 
 ## Overview
 
-This --name of project-- was created by Toucans Team 3 for Chingu Voyage 28.
+The COVID-19 App was created by Toucans Team 3 for Chingu Voyage 28.
 
 #### LIVE LINK : URL
 
