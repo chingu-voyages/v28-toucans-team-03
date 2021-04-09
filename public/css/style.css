@@ -1,0 +1,17 @@
+/* Resets */
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Nanum Myeongjo", serif;
+	outline: none !important;
+	box-shadow: none !important;
+}
+
+.nav-red-color {
+	color: rgb(146, 23, 7) !important;
+}
+
+section {
+	padding-bottom: 2em;
+}

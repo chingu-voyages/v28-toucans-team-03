@@ -1,0 +1,17 @@
+h2 {
+	font-weight: bold;
+	margin-bottom: 1.5rem;
+}
+
+h6 {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+main {
+	margin: 2rem;
+	padding: 2rem;
+}
+ul {
+	padding: 0 40px;
+}

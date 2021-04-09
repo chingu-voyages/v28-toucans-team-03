@@ -1,0 +1,34 @@
+.jqvmap-label {
+	position: absolute;
+	display: none;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background: #292929;
+	color: white;
+	font-family: sans-serif, Verdana;
+	padding: 3px;
+	pointer-events: none;
+}
+
+.map {
+	width: 100%;
+	height: 400px;
+}
+
+.col-sm-4 {
+	text-align: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.title {
+	font-size: 20px;
+}
+
+
+@media screen and (max-width: 480px) {
+	.col_1 {
+		width: 50px;
+	}
+}
