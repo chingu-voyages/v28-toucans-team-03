@@ -4,7 +4,7 @@
 
 The COVID-19 App was created by Toucans Team 3 for Chingu Voyage 28.
 
-#### LIVE LINK : URL
+#### LIVE LINK : https://whispering-meadow-20690.herokuapp.com/
 
 ## Features
 
